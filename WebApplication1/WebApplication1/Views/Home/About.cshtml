@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Data Bindings";
+}
+
+<div>
+    <h2>@ViewBag.Title</h2>
+
+    <h3>Exemplo</h3>
+    <div ng-init="text = 'world'">
+        <p>{{"Hello " + text}}</p>
+        <input type="text" ng-model="text">
+    </div>
+
+    <h3>Exemplo</h3>
+    <p ng-controller="oneCtrl">{{"Hello " + text}}</p>
+
+    <h3>Don't bind to primitives</h3>
+    <div ng-controller="oneCtrl">
+        <div ng-controller="oneSubCtrl">
+            <input type="text" ng-model="tipo">
+            <input type="text" ng-model="obj.tipo">
+        </div>
+        <br/>
+        <p>Primitive: {{ tipo }}</p>
+        <p>Complex: {{ obj.tipo }}</p>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        angular.module("myApp")
+            .controller('oneCtrl', function ($scope) {
+                $scope.tipo = "Primitive";
+                $scope.obj = { tipo: "Complex" };
+            })
+            .controller('oneSubCtrl', function () {});
+    </script>
+}
