@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Controllers";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<div ng-controller="simpleCtrl">
+    <p>Object Simple Scope: {{ obj.text }}</p>
+
+    <div ng-controller="subCtrl">
+        <p>Object Inner Scope: {{ obj.text }}</p>
+    </div>
+
+    <br/>
+</div>
+
+@section scripts
+{
+    <script>
+        (function () {
+            "use strict";
+
+            function simpleCtrl($scope) {
+                $scope.obj = { text: "Simple Scope Text" };
+            }
+            simpleCtrl.$inject = ["$scope"];
+
+            function subCtrl($scope) {
+                $scope.obj = { text: "Inner Scope Text" };
+            }
+            subCtrl.$inject = ["$scope"];
+
+            angular.module("myApp")
+                .controller("simpleCtrl", simpleCtrl)
+                .controller("subCtrl", subCtrl);
+        })();
+    </script>
+}

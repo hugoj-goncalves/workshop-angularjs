@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Services";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Singleton</h3>
+
+<div ng-controller="firstCtrl as fc">
+    <p>SingletonModel from FirstCtrl: {{ fc.singletonModel.text }}</p>
+    <input type="text" ng-model="fc.singletonModel.text">
+</div>
+
+<div ng-controller="secondCtrl as sc">
+    <p>SingletonModel from SecondCtrl: {{ sc.singletonModel.text }}</p>
+    <input type="text" ng-model="sc.singletonModel.text">
+</div>
+
+<h3>Multiple Instances</h3>
+
+<div ng-controller="firstCtrl as fc">
+    <p>Model text from FirstCtrl: {{ fc.model.text }}</p>
+    <input type="text" ng-model="fc.model.text">
+</div>
+
+<div ng-controller="secondCtrl as sc">
+    <p>Model text from SecondCtrl: {{ sc.model.text }}</p>
+    <input type="text" ng-model="sc.model.text">
+</div>
+
+@section scripts
+{
+    <script>
+        (function() {
+            "use strict";
+
+            function modelFactory() {
+                function model(text) {
+                    this.text = text;
+                }
+
+                model.prototype.getText = function() {
+                    return this.text;
+                };
+
+                return model;
+            }
+
+            function singletonFactory() {
+                var singletonModel = {};
+                singletonModel.getText = function () {
+                    return singletonModel.text || "empty model";
+                };
+                return singletonModel;
+            }
+
+            function firstCtrl(singletonFactory, model) {
+                var self = this;
+                self.name = "FirstCtrl";
+                self.model = new model("first");
+                self.singletonModel = singletonFactory;
+            }
+            firstCtrl.$inject = ["singletonFactory", "model"];
+
+            function secondCtrl(singletonFactory, model) {
+                var self = this;
+                self.name = "SecondCtrl";
+                self.model = new model("second");
+                self.singletonModel = singletonFactory;
+            }
+            secondCtrl.$inject = ["singletonFactory", "model"];
+
+            angular.module("myApp")
+                .factory("model", modelFactory)
+                .factory("singletonFactory", singletonFactory)
+                .controller("firstCtrl", firstCtrl)
+                .controller("secondCtrl", secondCtrl);
+        })();
+    </script>
+}

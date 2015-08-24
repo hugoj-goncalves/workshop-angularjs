@@ -20,8 +20,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("1", "Index", "Home")</li>
-                    <li>@Html.ActionLink("2", "About", "Home")</li>
-                    <li>@Html.ActionLink("3", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("2", "Controllers", "Home")</li>
+                    <li>@Html.ActionLink("3", "DataBindings", "Home")</li>
+                    <li>@Html.ActionLink("4", "Services", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -40,7 +41,11 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     <script>
-        angular.module("myApp", []);
+        (function () {
+            "use strict";
+
+            angular.module("myApp", []);
+        })();
     </script>
     @RenderSection("scripts", required: false)
 </body>
