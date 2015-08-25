@@ -2,6 +2,7 @@
 ///<reference path="~/Scripts/angular.js"/> 
 ///<reference path="~/Scripts/angular-mocks.js"/> 
 
+///<reference path="~/dist/App.js"/>
 ///<reference path="~/dist/ControllersView.js"/> 
 
 describe("controller: sub", function () {
