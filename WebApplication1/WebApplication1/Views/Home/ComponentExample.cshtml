@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Component Example";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<br/>
+
+<div ng-controller="componentExampleController">
+    <div class="playerDirective" ng-repeat="myPlayer in model.players" player="myPlayer" hit="hitFn(player)">
+        <h4>Player Info</h4>
+        <p>Name: {{player.Name}}</p>
+        <p>Age: {{player.Age}}</p>
+        <p>Hits: {{player.Hits}}</p>
+
+        <button ng-click="hit({player: player})">Hit {{player.Name}}</button>
+    </div>
+</div>

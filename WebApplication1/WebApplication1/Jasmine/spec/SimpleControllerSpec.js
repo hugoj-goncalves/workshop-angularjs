@@ -1,12 +1,7 @@
-///<reference path="~/Jasmine/lib/jasmine-2.3.4/jasmine.js"/>
-///<reference path="~/Scripts/angular.js"/> 
-///<reference path="~/Scripts/angular-mocks.js"/> 
-
-///<reference path="~/dist/App.js"/>
-///<reference path="~/dist/ControllersView.js"/>
+/// <reference path="_tests_references.js"/>
 
 describe("controller: simple", function () {
-    beforeEach(function() {
+    beforeEach(function () {
         module("myApp"); // angular.mock.module("app");
     });
 

@@ -183,6 +183,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="dist\App.js" />
+    <Content Include="dist\ComponentExamplePlayerModule.js" />
+    <Content Include="dist\ComponentExampleView.js" />
     <Content Include="dist\ControllersView.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -194,9 +196,11 @@
     <Content Include="Jasmine\lib\jasmine-2.3.4\jasmine.css" />
     <Content Include="Jasmine\lib\jasmine-2.3.4\jasmine.js" />
     <Content Include="Jasmine\lib\jasmine-2.3.4\jasmine_favicon.png" />
-    <Content Include="Jasmine\SpecRunner.html" />
+    <Content Include="Jasmine\spec\ComponentExamplePlayerSpec.js" />
+    <Content Include="Jasmine\spec\ComponentExampleControllerSpec.js" />
     <Content Include="Jasmine\spec\SubControllerSpec.js" />
     <Content Include="Jasmine\spec\SimpleControllerSpec.js" />
+    <None Include="Jasmine\spec\_tests_references.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -1029,6 +1033,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\ComponentExample.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
