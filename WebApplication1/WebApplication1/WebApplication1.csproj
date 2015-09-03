@@ -183,9 +183,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="dist\App.js" />
+    <Content Include="dist\PromisesView.js" />
     <Content Include="dist\ComponentExamplePlayerModule.js" />
     <Content Include="dist\ComponentExampleView.js" />
     <Content Include="dist\ControllersView.js" />
+    <Content Include="dist\AsyncServicesView.js" />
+    <Content Include="dist\ServicesView.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1034,6 +1037,8 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Home\ComponentExample.cshtml" />
+    <Content Include="Views\Home\AsyncServices.cshtml" />
+    <Content Include="Views\Home\Promises.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,10 @@
 ﻿(function () {
     "use strict";
 
+    angular.module("myApp")
+        .controller("componentExampleController", componentExampleController)
+        .factory("dataService", dataService);
+
     function dataService() {
         var data = {
             players: [
@@ -19,6 +23,7 @@
         return data;
     }
 
+    componentExampleController.$inject = ["$scope", "dataService"];
     function componentExampleController($scope, dataService) {
         $scope.model = dataService;
 
@@ -26,9 +31,4 @@
             player.Hits++;
         };
     }
-    componentExampleController.$inject = ["$scope", "dataService"];
-
-    angular.module("myApp")
-        .controller("componentExampleController", componentExampleController)
-        .factory("dataService", dataService);
 })();

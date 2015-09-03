@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "AsyncServices - 5";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Async Service</h3>
+
+<div ng-controller="asyncViewController as avc">
+    <p ng-show="avc.loading">Atualizando dados...</p>
+    <p ng-show="!avc.loading">Dados do serviço: {{ avc.data }}</p>
+
+    <button ng-disabled="avc.loading" ng-click="avc.obterDados()">Obter dados</button>
+</div>
+
+
+<p>OBS: Sempre mesma resposta?</p>

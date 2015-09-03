@@ -14,7 +14,7 @@ describe("controller: sub", function () {
 
     describe("check controller text", function() {
         it("should contain text", function() {
-            expect(this.scope.obj.text).toBe("Inner Scope Text Wrong");
+            expect(this.scope.obj.text).toBe("Inner Scope Text");
         });
     });
 });

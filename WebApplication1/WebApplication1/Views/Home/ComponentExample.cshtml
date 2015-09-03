@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Component Example";
+    ViewBag.Title = "Component Example - 7";
 }
 
 <h3>@ViewBag.Title</h3>
@@ -14,5 +14,9 @@
         <p>Hits: {{player.Hits}}</p>
 
         <button ng-click="hit({player: player})">Hit {{player.Name}}</button>
+    </div>
+
+    <h4>--- Outra forma de escrever a mesma coisa ---</h4>
+    <div class="playerDirectiveWithTemplate" ng-repeat="myPlayer in model.players" player="myPlayer" hit="hitFn(player)">
     </div>
 </div>

@@ -16,5 +16,9 @@ describe("controller: simple", function () {
         it("should contain text", function() {
             expect(this.scope.obj.text).toBe("Simple Scope Text");
         });
+
+        it("object2 should contain text", function () {
+            expect(this.scope.obj2.text).toBe("Object2 Text");
+        });
     });
 });

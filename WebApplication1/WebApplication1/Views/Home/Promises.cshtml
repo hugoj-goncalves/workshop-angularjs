@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Promises - 6";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div ng-controller="promiseController as pc">
+    <p ng-show="pc.loading">Atualizando dados...</p>
+    <p ng-show="!pc.loading">Dados do serviço: {{ pc.data }}</p>
+
+    <button ng-disabled="pc.loading" ng-click="pc.obterDados()">Obter dados</button>
+    <button ng-disabled="pc.loading" ng-click="pc.chain()">Chain</button>
+</div>

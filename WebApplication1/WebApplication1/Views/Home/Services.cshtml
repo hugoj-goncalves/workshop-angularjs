@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Services";
+    ViewBag.Title = "Services - 4";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -27,54 +27,3 @@
     <p>Model text from SecondCtrl: {{ sc.model.text }}</p>
     <input type="text" ng-model="sc.model.text">
 </div>
-
-@section scripts
-{
-    <script>
-        (function() {
-            "use strict";
-
-            function modelFactory() {
-                function model(text) {
-                    this.text = text;
-                }
-
-                model.prototype.getText = function() {
-                    return this.text;
-                };
-
-                return model;
-            }
-
-            function singletonFactory() {
-                var singletonModel = {};
-                singletonModel.getText = function () {
-                    return singletonModel.text || "empty model";
-                };
-                return singletonModel;
-            }
-
-            function firstCtrl(singletonFactory, model) {
-                var self = this;
-                self.name = "FirstCtrl";
-                self.model = new model("first");
-                self.singletonModel = singletonFactory;
-            }
-            firstCtrl.$inject = ["singletonFactory", "model"];
-
-            function secondCtrl(singletonFactory, model) {
-                var self = this;
-                self.name = "SecondCtrl";
-                self.model = new model("second");
-                self.singletonModel = singletonFactory;
-            }
-            secondCtrl.$inject = ["singletonFactory", "model"];
-
-            angular.module("myApp")
-                .factory("model", modelFactory)
-                .factory("singletonFactory", singletonFactory)
-                .controller("firstCtrl", firstCtrl)
-                .controller("secondCtrl", secondCtrl);
-        })();
-    </script>
-}
