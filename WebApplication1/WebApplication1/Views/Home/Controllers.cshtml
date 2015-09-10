@@ -4,9 +4,9 @@
 
 <h3>@ViewBag.Title</h3>
 
-<div ng-controller="simpleCtrl">
-    <p>Object text: {{ obj.text }}</p>
-    <p>Object2 text: {{ obj2.text }}</p>
+<div ng-controller="simpleCtrl as sc">
+    <p>Object text: {{ sc.obj.text }}</p>
+    <p>Object2 text: {{ sc.obj2.text }}</p>
 
     <div ng-controller="subCtrl">
         <p>Object Inner Scope: {{ obj.text }}</p>

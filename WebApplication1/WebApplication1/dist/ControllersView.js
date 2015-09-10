@@ -7,8 +7,9 @@
 
     simpleCtrl.$inject = ["$scope"];
     function simpleCtrl($scope) {
-        $scope.obj = { text: "Simple Scope Text" };
-        $scope.obj2 = { text: "Object2 Text" };
+        var vm = this;
+        vm.obj = { text: "Simple Scope Text" };
+        vm.obj2 = { text: "Object2 Text" };
     }
 
     subCtrl.$inject = ["$scope"];

@@ -18,11 +18,11 @@
         }
 
         return {
-            restrict: "C",
+            restrict: "ECA",
             scope: {
                 player: "=",
                 defaultAttribute: "=",
-                undefinedAttribute: "=",
+                undefinedAttribute: "@",
                 hit: "&"
             },
             transclude: true,
@@ -50,7 +50,8 @@
             },
             link: linkFn,
             controller: controllerFn,
-            template: "<h4>Player Info</h4>" +
+            transclude: true,
+            template: "<ng-transclude></ng-transclude><h4>Player Info</h4>" +
                 "<p>Name: {{player.Name}}</p>" +
                 "<p>Age: {{player.Age}}</p>" +
                 "<p>Hits: {{player.Hits}}</p>" +

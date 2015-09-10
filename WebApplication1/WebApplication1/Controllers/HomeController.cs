@@ -41,6 +41,12 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+
+        public ActionResult NewModule()
+        {
+            return View();
+        }
+
         private static Random _random;
         private static Random Rand
         {
@@ -50,6 +56,7 @@ namespace WebApplication1.Controllers
             }
         }
 
+        [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult AsyncServicesData()
         {
             return Json(new object[]

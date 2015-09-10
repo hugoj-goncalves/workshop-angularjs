@@ -15,7 +15,7 @@
             return $http.get(svc.url);
         }
 
-        return getData();
+        return svc;
     }
 
     asyncViewController.$inject = ["$timeout", "asyncDataService"];
@@ -28,7 +28,7 @@
             vm.loading = true;
 
             $timeout(function() {
-                asyncDataService.success(function (data) {
+                asyncDataService.getData().success(function (data) {
                     vm.data = data;
                 }).finally(function () {
                     vm.loading = false;

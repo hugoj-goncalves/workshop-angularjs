@@ -1039,6 +1039,7 @@
     <Content Include="Views\Home\ComponentExample.cshtml" />
     <Content Include="Views\Home\AsyncServices.cshtml" />
     <Content Include="Views\Home\Promises.cshtml" />
+    <Content Include="Views\Home\NewModule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

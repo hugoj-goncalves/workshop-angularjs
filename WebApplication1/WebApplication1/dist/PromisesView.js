@@ -12,17 +12,15 @@
         vm.chain = chain;
 
         function chain() {
-            $q.when().then(function() { // promise 1
-                alert("success");
+            $q.when(dadosDoServidor()).then(function(data) { // promise 1
+                alert("success " + data);
                 return $q.reject();
-            }).then(function (param) { // promise 2
+            }).then(function (param) { // promise 2 success
                 alert("success2 " + param);
                 return "okay";
-            }, function (param) {
-                alert("error2 " + param);
             }).then(function (param) {  // promise 3
                 alert("success3 " + param);
-            }, function (param) {
+            }, function (param) { // promise3 error callback
                 alert("error3 " + param);
             });
         }
@@ -39,7 +37,10 @@
 
         function dadosPromise() {
             var timeout = $timeout(function () {
-                var dados = dadosDoServidor();
+                var dados = dadosDoServidor2().then(function (data) {
+                    data.dados = "outro dado";
+                    return data;
+                });
                 debugger;
                 return dados;
             }, 600);
@@ -55,6 +56,7 @@
             var deferred = $q.defer();
 
             deferred.resolve(dadosDoServidor());
+
 
             return deferred.promise;
 
